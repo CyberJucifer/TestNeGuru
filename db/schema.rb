@@ -38,12 +38,12 @@ ActiveRecord::Schema.define(version: 2020_12_07_105128) do
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", default: 1, null: false
+    t.integer "creator_id", null: false
     t.integer "category_id", null: false
-    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
-    t.index ["user_id"], name: "index_tests_on_user_id"
+    t.index ["creator_id"], name: "index_tests_on_creator_id"
   end
 
   create_table "user_tests", force: :cascade do |t|
