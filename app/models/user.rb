@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   # validates :nickname, uniqueness: true
-  has_many :user_tests
+  has_many :user_tests, dependent: :destroy
   has_many :tests, through: :user_tests
   has_many :created_tests, class_name: 'Test', foreign_key: :creator_id
 
