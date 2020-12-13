@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2020_12_07_105128) do
     t.string "title", null: false
     t.integer "level", default: 1, null: false
     t.integer "creator_id", null: false
-    t.integer "category_id", null: false
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_tests_on_category_id"
