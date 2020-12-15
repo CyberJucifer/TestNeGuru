@@ -16,29 +16,30 @@ categories = Category.create!([
                                 { title: 'Data Science' }
                               ])
 
+
 tests = Test.create!([
-                       { title: 'Test for Beginner', level: 1, category_id: categories.last.id, user_id: users.first.id },
-                       { title: 'Test for junior', level: 1, category_id: categories.first.id, user_id: users.first.id },
-                       { title: 'Test for middle', level: 2, category_id: categories.first.id, user_id: users.first.id },
-                       { title: 'Test for senior', level: 3, category_id: categories.first.id, user_id: users.first.id },
-                       { title: 'Test for mutants', level: 4, category_id: categories.last.id, user_id: users.last.id }
+                       { title: 'Test for Beginner', level: 1, category: categories.last, creator: users.first },
+                       { title: 'Test for junior', level: 1, category: categories.first, creator: users.first },
+                       { title: 'Test for middle', level: 2, category: categories.first, creator: users.first },
+                       { title: 'Test for senior', level: 3, category: categories.first, creator: users.last },
+                       { title: 'Test for mutants', level: 4, category: categories.last, creator: users.last }
                      ])
 
 questions = Question.create!([
-                               { title: 'True == True', test_id: tests.first.id },
-                               { title: 'False == True', test_id: tests.last.id }
+                               { title: 'True == True', test: tests.first },
+                               { title: 'False == True', test: tests.last }
                              ])
 
 Answer.create!([
-                 { title: 'True', correct: true, question_id: questions.first.id },
-                 { title: 'False', question_id: questions.first.id },
-                 { title: 'False', correct: true, question_id: questions.last.id },
-                 { title: 'True', question_id: questions.last.id }
+                 { title: 'True', correct: true, question: questions.first },
+                 { title: 'False', question: questions.first },
+                 { title: 'False', correct: true, question: questions.last },
+                 { title: 'True', question: questions.last }
                ])
 
 UserTest.create!([
-                   { user_id: users.first.id, test_id: tests.first.id},
-                   { user_id: users.first.id, test_id: tests[1].id},
-                   { user_id: users.first.id, test_id: tests[2].id},
-                   { user_id: users.last.id, test_id: tests.last.id}
+                   { user: users.first, test: tests.first },
+                   { user: users.last, test: tests[1] },
+                   { user: users.first, test: tests[2] },
+                   { user: users.last, test: tests.last }
                  ])
