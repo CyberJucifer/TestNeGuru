@@ -18,8 +18,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = @test.questions.create(question_params )
-    render plain: @question.inspect
+    @question = @test.questions.create(question_params)
+    redirect_to action: :index if @question.errors.empty?
   end
 
   def destroy
