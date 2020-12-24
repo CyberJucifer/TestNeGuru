@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to :action => "show", :id => @question.id
+      redirect_to :action => "show", :id => @question
     else
       render :new
     end
