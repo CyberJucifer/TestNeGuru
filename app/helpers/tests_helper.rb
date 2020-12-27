@@ -1,10 +1,6 @@
 module TestsHelper
-  def test_header
-    if @test.persisted?
-      test_header_edit
-    else
-      test_header_create
-    end
+  def test_header(test)
+    @test.persisted? ? test_header_edit(test) : test_header_create
   end
 
   private
@@ -13,7 +9,7 @@ module TestsHelper
     "Create New Test"
   end
 
-  def test_header_edit
-    "Edit #{@test.title} Test"
+  def test_header_edit(test)
+    "Edit #{test.title} Test"
   end
 end

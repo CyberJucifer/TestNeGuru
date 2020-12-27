@@ -4,12 +4,16 @@ class TestsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
-  def new
-    @test = Test.new
-  end
-
   def index
     @tests = Test.all
+  end
+
+  def show
+    @questions = @test.questions
+  end
+
+  def new
+    @test = Test.new
   end
 
   def create
