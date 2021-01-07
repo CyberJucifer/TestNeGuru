@@ -1,0 +1,18 @@
+<h1>Question № <%= @question.id %></h1>
+
+<table>
+  <tr>
+    <th>Test</th>
+    <th>Title</th>
+  </tr>
+
+    <tr>
+      <td><%= @test.title %></td>
+      <td><%= @question.title %></td>
+    </tr>
+
+</table>
+
+<br>
+<%= link_to 'Edit', edit_question_path(@question) %>
+<%= link_to 'Back', test_path(@test) %>
