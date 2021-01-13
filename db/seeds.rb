@@ -27,19 +27,16 @@ tests = Test.create!([
 
 questions = Question.create!([
                                { title: 'True == True', test: tests.first },
+                               { title: 'Test1', test: tests.first },
                                { title: 'False == True', test: tests.last }
                              ])
 
 Answer.create!([
                  { title: 'True', correct: true, question: questions.first },
                  { title: 'False', question: questions.first },
+                 { title: 'Test answer 1', correct: true, question: questions[1]},
+                 { title: 'Test answer 2', question: questions[1]},
                  { title: 'False', correct: true, question: questions.last },
                  { title: 'True', question: questions.last }
                ])
 
-UserTest.create!([
-                   { user: users.first, test: tests.first },
-                   { user: users.last, test: tests[1] },
-                   { user: users.first, test: tests[2] },
-                   { user: users.last, test: tests.last }
-                 ])
