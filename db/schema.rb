@@ -10,12 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_122449) do
+ActiveRecord::Schema.define(version: 2021_01_14_155759) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.string "title", null: false
     t.boolean "correct", default: false
-    t.integer "question_id", null: false
+    t.bigint "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -29,16 +32,16 @@ ActiveRecord::Schema.define(version: 2021_01_10_122449) do
 
   create_table "questions", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "test_id", null: false
+    t.bigint "test_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
   create_table "test_passages", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "test_id"
-    t.integer "current_question_id"
+    t.bigint "user_id"
+    t.bigint "test_id"
+    t.bigint "current_question_id"
     t.integer "correct_questions", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,10 +53,10 @@ ActiveRecord::Schema.define(version: 2021_01_10_122449) do
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", default: 1, null: false
-    t.integer "creator_id", null: false
-    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "creator_id"
+    t.bigint "category_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["creator_id"], name: "index_tests_on_creator_id"
   end
@@ -66,4 +69,11 @@ ActiveRecord::Schema.define(version: 2021_01_10_122449) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "questions", "tests"
+  add_foreign_key "test_passages", "questions", column: "current_question_id"
+  add_foreign_key "test_passages", "tests"
+  add_foreign_key "test_passages", "users"
+  add_foreign_key "tests", "categories"
+  add_foreign_key "tests", "tests", column: "creator_id"
 end
