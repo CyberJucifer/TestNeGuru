@@ -75,5 +75,5 @@ ActiveRecord::Schema.define(version: 2021_01_14_155759) do
   add_foreign_key "test_passages", "tests"
   add_foreign_key "test_passages", "users"
   add_foreign_key "tests", "categories"
-  add_foreign_key "tests", "tests", column: "creator_id"
+  add_foreign_key "tests", "users", column: "creator_id"
 end
