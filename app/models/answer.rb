@@ -11,4 +11,5 @@ class Answer < ApplicationRecord
   def validate_answers_amount
     errors.add(:title) if question.answers.count >= 4
   end
+
 end

@@ -2,9 +2,9 @@ class Test < ApplicationRecord
   belongs_to :category, optional: true
   belongs_to :creator, class_name: 'User', foreign_key: :creator_id
 
+  has_many :test_passages, dependent: :destroy
+  has_many :users, through: :test_passages
   has_many :questions, dependent: :destroy
-  has_many :user_tests, dependent: :destroy
-  has_many :users, through: :user_tests
 
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than: 0 }
