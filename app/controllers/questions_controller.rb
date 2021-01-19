@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
 
+  before_action :save_wanted_page
+  before_action :authenticate_user!
   before_action :find_question, only: %i[show destroy edit update]
   before_action :find_test, only: %i[new create]
 

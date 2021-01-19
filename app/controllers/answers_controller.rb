@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  before_action :save_wanted_page
+  before_action :authenticate_user!
   before_action :find_question, only: %i[new create]
   before_action :set_answer, only: %i[show edit update destroy]
 
@@ -42,4 +44,5 @@ class AnswersController < ApplicationController
   def answer_params
     params.require(:answer).permit(:title, :correct)
   end
+
 end
