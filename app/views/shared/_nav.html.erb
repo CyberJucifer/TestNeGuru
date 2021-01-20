@@ -1,0 +1,9 @@
+<h1 class="nav title"><%= link_to('Test Ne Guru', tests_path) %></h1>
+
+<% if logged_in? %>
+  <p class="nav user">Welcome, <b><%= current_user.nickname %></b></p>
+  <p class="nav user"><%= link_to('Logout', logout_path, method: :delete) %></p>
+<% else %>
+  <p class="nav user"><%= link_to('Log in', login_path) %></p>
+  <p class="nav user"><%= link_to('Sign up', signup_path) %></p>
+<% end %>

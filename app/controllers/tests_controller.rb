@@ -1,6 +1,5 @@
 class TestsController < ApplicationController
 
-  before_action :save_wanted_page
   before_action :authenticate_user!
   before_action :find_test, only: %i[show update edit destroy start]
 

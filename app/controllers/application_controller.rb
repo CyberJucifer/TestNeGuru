@@ -2,16 +2,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user,
-                :logged_in?,
-                :flash_verify,
-                :save_wanted_page
+                :logged_in?
 
   private
 
   def authenticate_user!
     unless current_user
+      save_wanted_page
       redirect_to login_path
-      flash_verify
     end
   end
 
@@ -21,10 +19,6 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     current_user.present?
-  end
-
-  def flash_verify
-    flash[:alert] = 'Verify Email and Password!'
   end
 
   def redirect_if_logged
