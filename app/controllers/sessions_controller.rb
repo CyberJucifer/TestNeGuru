@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      session[:wanted_page].nil? ? redirect_to(root_path) : redirect_to(session.delete(:wanted_page))
+      redirect_to session.delete(:wanted_page) || root_path
     else
       flash.now[:alert] = 'Verify email and password!'
       render :new
