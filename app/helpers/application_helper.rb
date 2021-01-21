@@ -10,4 +10,10 @@ module ApplicationHelper
     link_to("#{author} - #{project}", "#{GITHUB_URL}/#{author}/#{project}", rel: :nofollow, target: :_blank)
   end
 
+  def flash_message(type)
+    unless flash[type].blank?
+      content_tag :p, flash[type], class: "flash #{type}"
+    end
+  end
+
 end
