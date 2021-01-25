@@ -11,6 +11,8 @@
 
   <body>
   <%= render 'shared/nav' %>
+  <%= link_to('Admin mode', admin_tests_path) if current_user.is_a?(Admin) %>
+  <%= flash_message %>
   <%= yield %>
   <%= render 'shared/footer' %>
   </body>

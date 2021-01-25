@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = User.create!([
-                       { nickname: '1User', password: '123', email: '1usermail@mail.ru' },
-                       { nickname: '2User', password: 'qwerty', email: 'qwer@mail.ru' }
+                       { first_name: 'Tod', last_name: 'Bot', password: '123456', email: '1usermail@mail.ru', type: 'Admin' },
+                       { first_name: 'Tot', last_name: 'Krot', password: 'qwerty', email: 'qwer@mail.ru' }
                      ])
 
 categories = Category.create!([
