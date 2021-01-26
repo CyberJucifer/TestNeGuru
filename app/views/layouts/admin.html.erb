@@ -12,7 +12,7 @@
 <body>
 <%= render 'admin/nav' %>
 <%= link_to 'User mode', tests_path %>
-<%= flash_message %>
+<%= flash_message('alert') %>
 <%= yield %>
 <%= render 'shared/footer' %>
 </body>

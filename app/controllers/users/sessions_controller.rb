@@ -6,21 +6,6 @@ class Users::SessionsController < Devise::SessionsController
 
   after_action :welcome_message, only: :create
 
-  # GET /resource/sign_in
-   def new
-     super
-   end
-
-  # POST /resource/sign_in
-   def create
-     super
-   end
-
-  # DELETE /resource/sign_out
-   def destroy
-     super
-   end
-
   private
 
   def configure_sign_in_params
@@ -32,7 +17,13 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def after_sign_in_path_for(resource)
-    current_user.is_a?(Admin) ? admin_tests_path : root_path
+
+      if resource.is_a?(Admin)
+        admin_tests_path
+      else
+        super
+      end || stored_location_for(resource)
+
   end
 
 end
