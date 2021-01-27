@@ -1,0 +1,17 @@
+<h1>Tests</h1>
+
+<%= flash_message('notice') %>
+
+<p>
+  <%= link_to 'New_test', new_admin_test_path %>
+</p>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th colspan="4">Actions</th>
+  </tr>
+
+  <%= render @tests %>
+</table>

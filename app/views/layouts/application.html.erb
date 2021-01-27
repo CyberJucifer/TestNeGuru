@@ -11,6 +11,7 @@
 
   <body>
   <%= render 'shared/nav' %>
+  <%= flash_message('alert') %>
   <%= yield %>
   <%= render 'shared/footer' %>
   </body>
