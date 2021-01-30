@@ -1,2 +1,9 @@
 ru:
-  hello: "Привет мир!"
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершен!"
+    gist:
+      success: "Gist успешно сохранен!"
+      failure: "Во время сохранения gists произошла ошибка"
+    gist_params:
+      description: "Вопрос в %{title} из TestNeGuru"
