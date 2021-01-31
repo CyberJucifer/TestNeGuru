@@ -1,4 +1,4 @@
-class GistQuestionService
+class GithubService
 
   def initialize(question, client: nil)
     @question = question
@@ -8,10 +8,6 @@ class GistQuestionService
 
   def call
     @client.create_gist(gist_params)
-  end
-
-  def success?
-    @client.last_response.data.html_url.present?
   end
 
   private

@@ -5,5 +5,8 @@ en:
     gist:
       success: "Gist was successfully!"
       failure: "An error occurred while saving gists"
+      question: "Question"
+      link: "Link URL"
+      creator: "Creator's email"
     gist_params:
       description: "A question in %{title} from TestNeGuru"

@@ -19,11 +19,11 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def gist
-    service = GistQuestionService.new(@test_passage.current_question)
-    result = service.call
+    result = GithubService.new(@test_passage.current_question).call
 
-    if service.success?
-      current_user.gists.create!(question: @test_passage.current_question, gist_id: result.id, url: result.html_url)
+    gist = current_user.gists.create(question: @test_passage.current_question, gist_id: result.id, url: result.html_url)
+
+    if result && gist.persisted?
       flash[:notice] = "#{t('.success')} - #{view_context.link_to('Созданный gist',
                                                                   result.html_url,
                                                                   rel: 'nofollow',
