@@ -1,5 +1,7 @@
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
+<%= flash_message('notice') %>
+
 <b>
   Question № <%= @test_passage.current_question.id %>.
   Amount of questions: <%= @test_passage.test.questions.count %><br>
@@ -14,6 +16,7 @@
     </p>
   <% end %>
 
+  <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
   <p><%= form.submit 'Next' %></p>
 
 <% end %>

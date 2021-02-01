@@ -11,6 +11,7 @@
 
 <body>
 <%= render 'admin/nav' %>
+<%= link_to('Show created gists', admin_gists_path) %>
 <%= flash_message('alert') %>
 <%= yield %>
 <%= render 'shared/footer' %>

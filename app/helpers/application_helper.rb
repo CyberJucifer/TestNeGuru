@@ -11,8 +11,8 @@ module ApplicationHelper
   end
 
   def flash_message(type)
-    unless flash[type].blank?
-      content_tag :p, flash[type], class: "flash #{type}"
+    if flash[type]
+      content_tag :p, flash[type].html_safe, class: "flash #{type}"
     end
   end
 
