@@ -44,7 +44,15 @@ gem 'devise'
 
 gem 'faraday'
 
+#GITHUB
+
 gem 'octokit'
+
+# UI
+
+gem 'jquery-rails'
+gem 'bootstrap'
+gem 'octicons_helper'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
