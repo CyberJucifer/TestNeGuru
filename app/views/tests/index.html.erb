@@ -2,10 +2,14 @@
 
 <%= flash_message('notice') %>
 
-<table>
+<table class="table">
   <tr>
-    <th>ID</th>
-    <th>Title</th>
+    <th class="sort-by-title pointer">
+      Title
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
+    <th>Level</th>
     <th>Actions</th>
   </tr>
 
