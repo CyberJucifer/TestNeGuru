@@ -16,6 +16,7 @@ class TestPassage < ApplicationRecord
   def accept!(answer_ids)
     unless answer_ids.nil?
       self.correct_questions += 1 if correct_answer?(answer_ids)
+      self.completed_questions += 1
       save!
     end
   end

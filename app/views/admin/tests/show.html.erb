@@ -12,5 +12,6 @@
 
 <p> Amount of questions: <%= @questions.count %> </p><br>
 
+<%= link_to 'Edit test', edit_admin_test_path(@test) %><br>
 <%= link_to 'Create new question', new_admin_test_question_path(@test) %><br>
 <%= link_to 'Back', admin_tests_path %>

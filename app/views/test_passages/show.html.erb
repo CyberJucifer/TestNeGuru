@@ -1,5 +1,10 @@
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
+<%= content_tag :div, class: 'progress', data: { questions_count: @test_passage.test.questions.count,
+                                                      completed_questions: @test_passage.completed_questions } do %>
+  <div class="progress-bar" id="progress-bar"></div>
+<% end %>
+
 <%= flash_message('notice') %>
 
 <b>
