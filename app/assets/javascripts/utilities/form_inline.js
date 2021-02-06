@@ -12,8 +12,7 @@ document.addEventListener('turbolinks:load', function() {
 function formInLineLinkHandler(event) {
     event.preventDefault()
 
-    var questions = this.dataset.questions
-    questions
+    var testId = this.dataset.testId
     formInLineHandler(testId)
 }
 
