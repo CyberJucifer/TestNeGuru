@@ -1,19 +1,15 @@
-document.addEventListener('turbolinks:load', function() {
-    $(window).on('load', progressBarHandler)
-})
+document.addEventListener('turbolinks:load', progressBarHandler )
 
 function progressBarHandler() {
-
     progress = document.querySelector('.progress')
 
     if (progress) {
+        const bar = document.getElementById('progress-bar')
+        let questionsCount = progress.dataset.questionsCount
+        let completedQuestions = progress.dataset.completedQuestions
 
-        var questionsCount = progress.dataset.questionsCount
-        var completedQuestions = progress.dataset.completedQuestions
+        let width = completedQuestions * 100 / questionsCount
 
-        var width = completedQuestions*100/questionsCount
-
-        var bar = document.getElementById('progress-bar')
         bar.style.width = width + '%'
     }
 }
