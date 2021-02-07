@@ -2,6 +2,8 @@
 
 <%= flash_message('notice') %>
 
+<%= render 'shared/errors', resource: @test %>
+
 <p>
   <%= link_to 'New_test', new_admin_test_path %>
 </p>
