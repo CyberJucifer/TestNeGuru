@@ -1,7 +1,8 @@
 <h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
+
 <% if @test_passage.success? %>
   <p>Success! Your result: <span style="color:green"><%= @test_passage.result_in_percents %>%</span></p>
-<% elsif cookies['currentTime'] == "00:00:00" %>
+<% elsif @test_passage.timed_out? %>
   <p>Time's up! Unfortunately, the test wasn't passed... </p>
 <% else %>
   <p>Failure! Your result: <span style="color:red"><%= @test_passage.result_in_percents %>%</span></p>

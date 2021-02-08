@@ -16,5 +16,4 @@
 //= require bootstrap-sprockets
 //= require activestorage
 //= require turbolinks
-//= require js.cookie
 //= require_tree .

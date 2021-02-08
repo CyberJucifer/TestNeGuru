@@ -6,7 +6,7 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_current_question
 
   def completed?
-    current_question.nil?
+    current_question.nil? || timed_out?
   end
 
   def success?
@@ -23,6 +23,14 @@ class TestPassage < ApplicationRecord
 
   def result_in_percents
     (correct_questions.to_f/test.questions.count * 100).to_i
+  end
+
+  def timed_out?
+    (test.timer * 60 - (Time.now - created_at)).to_i <= 0
+  end
+
+  def time_left
+    (test.timer * 60 - (Time.now - created_at)).to_i if test.timer > 0
   end
 
   private
