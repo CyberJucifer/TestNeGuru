@@ -1,5 +1,10 @@
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
+<% if @test_passage.test.timer.present? %>
+  <div class="timer" id="timer" data-value="<%= convert_in_time(@test_passage.test.timer) %>"
+       data-result="<%= result_test_passage_path(@test_passage) %>"></div>
+<% end %>
+
 <%= content_tag :div, class: 'progress', data: { questions_count: @test_passage.test.questions.count,
                                                       completed_questions: @test_passage.completed_questions } do %>
   <div class="progress-bar" id="progress-bar"></div>
