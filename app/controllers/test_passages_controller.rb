@@ -3,7 +3,9 @@ class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_test_passage, only: %i[show update result gist]
 
-  def show; end
+  def show
+    render plain: 'The test already completed or next question was not found!' if @test_passage.completed?
+  end
 
   def update
     @test_passage.accept!(params[:answer_ids])
@@ -16,9 +18,7 @@ class TestPassagesController < ApplicationController
     end
   end
 
-  def result
-    @test_passage.current_question = nil
-  end
+  def result; end
 
   def gist
     result = GithubService.new(@test_passage.current_question).call
