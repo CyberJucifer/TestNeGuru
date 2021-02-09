@@ -16,7 +16,9 @@ class TestPassagesController < ApplicationController
     end
   end
 
-  def result; end
+  def result
+    @test_passage.current_question = nil
+  end
 
   def gist
     result = GithubService.new(@test_passage.current_question).call

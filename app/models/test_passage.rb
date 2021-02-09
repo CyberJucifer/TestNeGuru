@@ -26,7 +26,7 @@ class TestPassage < ApplicationRecord
   end
 
   def timed_out?
-    (test.timer * 60 - (Time.now - created_at)).to_i <= 0
+    (test.timer * 60 - (Time.now - created_at)).to_i <= 0 if test.timer.present?
   end
 
   def time_left
