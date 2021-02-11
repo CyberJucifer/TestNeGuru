@@ -4,7 +4,7 @@ class TestPassagesController < ApplicationController
   before_action :find_test_passage, only: %i[show update result gist]
 
   def show
-    render plain: 'The test already completed or next question was not found!' if @test_passage.completed?
+    redirect_to result_test_passage_path(@test_passage) if @test_passage.completed?
   end
 
   def update
