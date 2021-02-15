@@ -11,6 +11,7 @@
 
   <body>
   <%= render 'shared/nav' %>
+  <%= link_to "My badges", my_badges_path %> | <%= link_to "All badges", admin_badges_path %>
   <%= flash_message('alert') %>
   <%= yield %>
   <%= render 'shared/footer' %>

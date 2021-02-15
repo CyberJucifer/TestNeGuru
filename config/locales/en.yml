@@ -10,3 +10,6 @@ en:
       creator: "Creator's email"
     gist_params:
       description: "A question in %{title} from TestNeGuru"
+  all_tests_data_science: "All test from category Data Science"
+  first_try: "With a first try"
+  all_tests_1_level: "All tests 1st level"

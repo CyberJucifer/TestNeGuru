@@ -10,3 +10,6 @@ ru:
       creator: "Почта автора"
     gist_params:
       description: "Вопрос в %{title} из TestNeGuru"
+  all_tests_data_science: "Все вопросы из категории Data Science"
+  first_try: "С первой попытки"
+  all_tests_1_level: "Все тесты 1-го уровня"

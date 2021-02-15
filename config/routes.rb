@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, path: :negurus, path_names: { sign_in: :login, sign_out: :logout }, controllers: { sessions: "users/sessions"}
 
   root 'tests#index'
+  get 'my_badges', to: 'user_badge#index'
 
   resources :tests, only: :index do
 
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
     end
 
   end
+
+  resources :badges, only: :index
 
   resources :test_passages, only: %i[show update] do
     member do
@@ -29,6 +32,7 @@ Rails.application.routes.draw do
     end
 
     resources :gists, only: :index
+    resources :badges
   end
 
 end

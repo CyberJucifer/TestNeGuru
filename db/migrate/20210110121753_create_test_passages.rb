@@ -6,6 +6,7 @@ class CreateTestPassages < ActiveRecord::Migration[5.2]
       t.references :current_question, foreign_key: { to_table: :questions }
       t.integer :correct_questions, default: 0
       t.integer :completed_questions, default: 0
+      t.integer :result
 
       t.timestamps
     end

@@ -1,0 +1,20 @@
+<h1>Badges</h1>
+
+<%= link_to 'New badge', new_admin_badge_path %>
+
+<table class="table">
+  <tr>
+    <th class="sort-by-title pointer">
+      Title
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
+    <th> Image </th>
+    <th> Rule </th>
+    <th colspan="4">Actions</th>
+  </tr>
+
+  <%= render @badges %>
+</table>
+
+<br><%= link_to 'Back to tests', admin_tests_path %>

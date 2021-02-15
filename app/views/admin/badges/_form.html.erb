@@ -1,0 +1,23 @@
+<h1><%= badge_header(@badge) %></h1>
+<%= form_with(model: [:admin, @badge], local: true) do |form| %>
+  <%= render 'shared/errors', resource: @badge %>
+  <p>
+    <%= form.label :title %>*<br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :image %>*<br>
+    <%= form.text_field :image %>
+  </p>
+
+  <p>
+    <%= form.label :rule %>*:
+    <%= form.select :rule, [[I18n.t('all_tests_data_science'), all_tests_data_science_rule],
+                            [I18n.t('first_try'), first_try_rule],
+                            [I18n.t('all_tests_1_level'), all_tests_1_level_rule]],
+                            prompt: true %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>

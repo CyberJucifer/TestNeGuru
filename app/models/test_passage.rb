@@ -5,6 +5,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_current_question
 
+  scope :passed, -> { where('result >= 85') }
+
   def completed?
     current_question.nil?
   end
@@ -17,6 +19,7 @@ class TestPassage < ApplicationRecord
     unless answer_ids.nil?
       self.correct_questions += 1 if correct_answer?(answer_ids)
       self.completed_questions += 1
+      self.result = result_in_percents
       save!
     end
   end

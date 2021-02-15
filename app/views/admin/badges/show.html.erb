@@ -1,0 +1,12 @@
+<h1><%= @badge.title %></h1>
+
+<p>
+  <%= image_tag "#{@badge.image}", width: 100, height: 100 %>
+</p>
+
+<p>
+  <%= I18n.t(".#{@badge.rule}") %>
+</p>
+
+<%= link_to 'Edit', edit_admin_badge_path(@badge) %><br>
+<%= link_to 'Back', admin_badges_path %>
