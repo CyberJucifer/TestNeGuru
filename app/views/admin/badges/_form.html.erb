@@ -26,7 +26,6 @@
   <div class="parameter-levels hide">
     <%= form.label :parameter %>*<br>
     <%= form.select :parameter, Test.select([:id,:level]).pluck(:level).uniq, disabled: true %>
-    <%#= form.number_field :parameter, disabled: true, required: true, prompt: true  %>
   </div>
 
 
