@@ -1,28 +1,16 @@
 module BadgesHelper
 
-  def badge_header(badge)
-    @badge.persisted? ? badge_header_edit(badge) : badge_header_create
-  end
-
-  def all_tests_data_science_rule
-    Badge::RULES[0]
-  end
-
-  def first_try_rule
-    Badge::RULES[1]
-  end
-
-  def all_tests_1_level_rule
-    Badge::RULES[2]
+  def badge_header
+    @badge.persisted? ? badge_header_edit : badge_header_create
   end
 
   private
 
   def badge_header_create
-    "Create New Badge"
+    I18n.t('.badge_create')
   end
 
-  def badge_header_edit(badge)
-    "Edit #{badge.title} Badge"
+  def badge_header_edit
+    I18n.t('.badge_edit')
   end
 end

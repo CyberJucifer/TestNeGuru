@@ -16,4 +16,8 @@ module ApplicationHelper
     end
   end
 
+  def show_rule(badge)
+    I18n.t(".#{badge.rule}", title: badge.all_tests_exact_category_rule? ? badge.category_title(badge.parameter) : badge.parameter)
+  end
+
 end

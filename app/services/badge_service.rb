@@ -7,32 +7,36 @@ class BadgeService
   end
 
   def call
-    Badge.select { |badge| send(badge.rule) }
+    Badge.select { |badge| send(badge.rule, badge.parameter.to_i) }
   end
 
   private
 
-  def all_tests_data_science
+  def all_tests_exact_category(category_id)
+    return unless @test_passage.success? && @test.category_id == category_id
+    @category_id = category_id
+    Badge.by_rule("all_tests_exact_category") if all_tests_exact_category_done?
+  end
+
+  def first_try(badge)
     return unless @test_passage.success?
-    Badge.by_rule('all_tests_data_science') if all_tests_data_science_done?
+    Badge.by_rule('first_try') if @user.tests.where(id: @test.id).count == 1
   end
 
-  def first_try
-    return unless @test_passage.success?
-    @user.tests.where(id: @test.id).count == 1
+  def all_tests_exact_level(level)
+    return unless @test_passage.success? && @test.level == level
+    @level = level
+    Badge.by_rule('all_tests_exact_level') if all_tests_exact_level_done?
   end
 
-  def all_tests_1_level
-    return unless @test_passage.success?
-    Badge.by_rule('all_tests_1_level') if all_tests_1_level_done?
+  def all_tests_exact_level_done?
+    TestPassage.passed.joins(:test).where("tests.level": @level).pluck(:test_id).uniq.sort ==
+      Test.by_level(@level).pluck(:id).sort
   end
 
-  def all_tests_1_level_done?
-    @user.tests.by_level('1') & Test.by_level('1') == Test.by_level('1')
-  end
-
-  def all_tests_data_science_done?
-    @user.tests.names_by_category('Data Science') & Test.names_by_category('Data Science') == Test.names_by_category('Data Science')
+  def all_tests_exact_category_done?
+    TestPassage.passed.joins(:test).where("tests.category_id": @category_id).pluck(:test_id).uniq.sort ==
+      Test.where(category_id: @category_id).pluck(:id).sort
   end
 
 end

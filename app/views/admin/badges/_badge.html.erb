@@ -1,7 +1,7 @@
 <tr>
   <td><%= badge.title %></td>
   <td><%= image_tag "#{badge.image}", width: 80, height: 80 %></td>
-  <td><%= I18n.t(".#{badge.rule}") %></td>
+  <td><%= show_rule(badge) %></td>
   <td><%= link_to('Show', admin_badge_path(badge))%></td>
   <td>
     <%= link_to('Edit', edit_admin_badge_path(badge))%>

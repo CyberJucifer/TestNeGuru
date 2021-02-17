@@ -1,4 +1,4 @@
-<h1><%= badge_header(@badge) %></h1>
+<h1><%= badge_header %></h1>
 <%= form_with(model: [:admin, @badge], local: true) do |form| %>
   <%= render 'shared/errors', resource: @badge %>
   <p>
@@ -11,13 +11,24 @@
     <%= form.text_field :image %>
   </p>
 
-  <p>
+  <div class='rule'>
     <%= form.label :rule %>*:
-    <%= form.select :rule, [[I18n.t('all_tests_data_science'), all_tests_data_science_rule],
-                            [I18n.t('first_try'), first_try_rule],
-                            [I18n.t('all_tests_1_level'), all_tests_1_level_rule]],
-                            prompt: true %>
-  </p>
+    <%= form.select :rule, [[Badge.human_attribute_name('all_tests_exact_category'), Badge::RULES[0]],
+                            [Badge.human_attribute_name('first_try'), Badge::RULES[1]],
+                            [Badge.human_attribute_name('all_tests_exact_level'), Badge::RULES[2]]], prompt: true %>
+  </div>
 
-  <p><%= form.submit %></p>
+  <div class="parameter-categories hide">
+    <%= form.label :parameter %>*<br>
+    <%= form.collection_select :parameter, Category.all, :id, :title %>
+  </div>
+
+  <div class="parameter-levels hide">
+    <%= form.label :parameter %>*<br>
+    <%= form.select :parameter, Test.select([:id,:level]).pluck(:level).uniq, disabled: true %>
+    <%#= form.number_field :parameter, disabled: true, required: true, prompt: true  %>
+  </div>
+
+
+  <br><%= form.submit %>
 <% end %>

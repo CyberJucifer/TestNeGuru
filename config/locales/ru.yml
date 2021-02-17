@@ -10,6 +10,15 @@ ru:
       creator: "Почта автора"
     gist_params:
       description: "Вопрос в %{title} из TestNeGuru"
-  all_tests_data_science: "Все вопросы из категории Data Science"
+  all_tests_exact_category: "Все вопросы из категории %{title} "
   first_try: "С первой попытки"
-  all_tests_1_level: "Все тесты 1-го уровня"
+  all_tests_exact_level: "Все тесты %{title} уровня"
+  badge_create: "Создать новый бэйдж"
+  badge_edit: "Изменить бэйдж"
+
+  activerecord:
+    attributes:
+      badge:
+        all_tests_exact_category: "Все тесты из категории"
+        all_tests_exact_level: "Все тесты определенного уровня"
+        first_try: "С первой попытки"
