@@ -3,6 +3,7 @@ class Admin::BadgesController < Admin::BaseController
 
   def index
     @badges = Badge.all
+    @user_badges = current_user.badges
   end
 
   def show; end

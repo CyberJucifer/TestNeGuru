@@ -1,4 +1,4 @@
-<h1>Passing the <%= @test_passage.test.title %> Test</h1>
+<h1><%= t('.title', title: @test_passage.test.title) %></h1>
 
 <%= content_tag :div, class: 'progress', data: { questions_count: @test_passage.test.questions.count,
                                                       completed_questions: @test_passage.completed_questions } do %>
@@ -8,8 +8,8 @@
 <%= flash_message('notice') %>
 
 <b>
-  Question № <%= @test_passage.current_question.id %>.
-  Amount of questions: <%= @test_passage.test.questions.count %><br>
+  <%= t('.question_id', id: @test_passage.current_question.id) %>.
+  <%= t('.questions_amount', amount: @test_passage.test.questions.count) %><br>
   <%= @test_passage.current_question.title %>
 </b>
 
@@ -21,9 +21,9 @@
     </p>
   <% end %>
 
-  <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
-  <p><%= form.submit 'Next' %></p>
+  <p><%= link_to t('.gist'), gist_test_passage_path(@test_passage), method: :post %></p>
+  <p><%= form.submit t('.next'), class: "btn btn-primary" %></p>
 
 <% end %>
 
-<%= link_to 'Back to tests', tests_path %>
+<%= link_to t('.back_to_tests'), tests_path %>

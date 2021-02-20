@@ -1,16 +1,16 @@
-<h1>Tests</h1>
+<h1><%= t('.tests') %></h1>
 
 <%= flash_message('notice') %>
 
-<table class="table">
+<table class="table table-bordered table-striped">
   <tr>
     <th class="sort-by-title pointer">
-      Title
+      <%= t('.title') %>
       <%= octicon 'arrow-up', class: 'text-success hide' %>
       <%= octicon 'arrow-down', class: 'text-success hide' %>
     </th>
-    <th>Level</th>
-    <th>Actions</th>
+    <th><%= t('.level') %></th>
+    <th><%= t('.actions') %></th>
   </tr>
 
   <%= render @tests %>

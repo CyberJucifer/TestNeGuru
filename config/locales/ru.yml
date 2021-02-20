@@ -1,7 +1,16 @@
 ru:
+  all_tests_exact_category: "Все вопросы из категории %{title}"
+  first_try: "С первой попытки"
+  all_tests_exact_level: "Все тесты %{title} уровня"
+  badge_create: "Создать новый бэйдж"
+  badge_edit: "Редактировать бэйдж"
   test_passages:
     result:
       header: "Тест %{title} успешно завершен!"
+      completed: "Тест %{title} пройден!"
+      success: "Успешно! Ваш результат:"
+      failure: "Провал! Ваш результат:"
+      back_to_tests: "Назад к тестам"
     gist:
       success: "Gist успешно сохранен!"
       failure: "Во время сохранения gists произошла ошибка"
@@ -10,15 +19,76 @@ ru:
       creator: "Почта автора"
     gist_params:
       description: "Вопрос в %{title} из TestNeGuru"
-  all_tests_exact_category: "Все вопросы из категории %{title} "
-  first_try: "С первой попытки"
-  all_tests_exact_level: "Все тесты %{title} уровня"
-  badge_create: "Создать новый бэйдж"
-  badge_edit: "Изменить бэйдж"
+    show:
+      title: "Прохождение теста %{title}"
+      question_id: "Вопрос № %{id}"
+      questions_amount: "Количество вопросов: %{amount}"
+      back_to_tests: "Назад к тестам"
+      next: "Далее"
+      gist: "Создать гист по вопросу"
+  shared:
+    nav:
+      title: "Тест Не Гуру"
+      welcome: "Добро пожаловать, %{first_name} %{last_name} Не Гуру |"
+      logout: "Выйти"
+      sign_up: "Зарегистрироваться"
+      badges: "Бэйджи"
+      log_in: "Войти"
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки:"
+        many: "Обнаружено %{count} ошибок:"
+        one: "Обнаружена %{count} ошибка:"
+        other: "Обнаружено %{count} ошибки:"
+  tests:
+    test:
+      start: "Начать"
+    index:
+      title: "Название"
+      level: "Уровень"
+      actions: "Действия"
+      tests: "Тесты"
+  badges:
+    index:
+      badges: "Бэйджи"
+      my_badges: "Мои бэйджи"
+      title: "Название"
+      image: "Изображение"
+      rule: "Правило"
+      all_badges: "Все бейджи"
+      back_to_tests: "Назад к тестам"
+  admin:
+    badges:
+      form:
+        rule: "Правило"
+        first_try: "С первого раза"
+        all_tests_exact_category: "Все тесты определенной категории"
+        all_tests_exact_level: "Все тесты определенного уровня"
+        parameter: "Параметр"
+        create: "Создать"
+        title: "Название"
+        image: "Изображение"
+      index:
+        back_to_tests: "Назад к тестам"
+        badges: "Бэйджи"
+        my_badges: "Мои бэйджи"
+        title: "Название"
+        image: "Изображение"
+        rule: "Правило"
+        all_badges: "Все бэйджи"
+        new_badge: "Создать бэйдж"
+  back: "Назад"
+  no_questions: "В тесте нет вопросов!"
 
   activerecord:
+    models:
+      test: "Тест"
     attributes:
-      badge:
-        all_tests_exact_category: "Все тесты из категории"
-        all_tests_exact_level: "Все тесты определенного уровня"
-        first_try: "С первой попытки"
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+    errors:
+      messages:
+        blank: "не может быть пустым"
+        not_a_number: "- не числовое значение"

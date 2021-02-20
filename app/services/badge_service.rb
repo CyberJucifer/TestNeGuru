@@ -6,7 +6,7 @@ class BadgeService
     @user = test_passage.user
   end
 
-  def call
+  def give_badges
     Badge.select { |badge| send(badge.rule, badge.parameter.to_i) }
   end
 

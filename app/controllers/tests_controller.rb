@@ -10,8 +10,13 @@ class TestsController < ApplicationController
 
   def start
     @test = Test.find(params[:id])
-    current_user.tests.push(@test)
-    redirect_to current_user.test_passage(@test)
+    if @test.questions.count.positive?
+      current_user.tests.push(@test)
+      redirect_to current_user.test_passage(@test)
+    else
+      flash[:alert] = t('no_questions')
+      redirect_to tests_path
+    end
   end
 
   private

@@ -1,7 +1,16 @@
 en:
+  all_tests_exact_category: "Все вопросы из категории %{title} "
+  first_try: "С первой попытки"
+  all_tests_exact_level: "Все тесты %{title} уровня"
+  badge_create: "Create new badge"
+  badge_edit: "Edit badge"
   test_passages:
     result:
       header: "The %{title} Test was Completed!"
+      completed: "The %{title} Test was Completed!"
+      success: "Success! Your result:"
+      failure: "Failure! Your result:"
+      back_to_tests: "Back to tests"
     gist:
       success: "Gist was successfully!"
       failure: "An error occurred while saving gists"
@@ -10,15 +19,75 @@ en:
       creator: "Creator's email"
     gist_params:
       description: "A question in %{title} from TestNeGuru"
-  all_tests_exact_category: "Все вопросы из категории %{title} "
-  first_try: "С первой попытки"
-  all_tests_exact_level: "Все тесты %{title} уровня"
-  badge_create: "Create new badge"
-  badge_edit: "Edit badge"
-
-  activerecord:
-    attributes:
-      badge:
+    show:
+      title: "Passing the %{title} test"
+      question_id: "Question № %{id}"
+      questions_amount: "Amount of questions: %{amount}"
+      back_to_tests: "Back to tests"
+      next: "Next"
+      gist: "Gist question"
+  shared:
+    nav:
+      title: "Test Ne Guru"
+      welcome: "Welcome, %{first_name} %{last_name} Ne Guru |"
+      logout: "Logout"
+      sign_up: "Sign up"
+      badges: "Badges"
+      log_in: "Log in"
+    errors:
+      header:
+        one: "Found %{count} error:"
+        other: "Found %{count} errors:"
+  tests:
+    test:
+      start: "Start"
+    index:
+      title: "Actions"
+      level: "Level"
+      actions: "Actions"
+      tests: "Tests"
+  badges:
+    index:
+      badges: "Badges"
+      my_badges: "My badges"
+      title: "Title"
+      image: "Image"
+      rule: "Rule"
+      all_badges: "All badges"
+      back_to_tests: "Back to tests"
+  admin:
+    badges:
+      form:
+        rule: "Rule"
         all_tests_exact_category: "All tests from exact category"
         all_tests_exact_level: "All tests from exact level"
         first_try: "With a first try"
+        parameter: "Parameter"
+        create: "Create"
+        title: "Title"
+        image: "Image"
+      index:
+        back_to_tests: "Back to tests"
+        badges: "Badges"
+        my_badges: "My badges"
+        title: "Title"
+        image: "Image"
+        rule: "Rule"
+        all_badges: "All badges"
+        new_badge: "Create badge"
+  back: "Back"
+  no_questions: "There is no questions in test!"
+
+  activerecord:
+    models:
+      test: "Test"
+    attributes:
+      test:
+        title: "Title"
+        level: "Level"
+        category: "Category"
+    errors:
+      messages:
+        blank: "can't be blank"
+        not_a_number: "- not a number"
+

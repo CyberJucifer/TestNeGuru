@@ -7,10 +7,10 @@ module BadgesHelper
   private
 
   def badge_header_create
-    I18n.t('.badge_create')
+    I18n.t('badge_create')
   end
 
   def badge_header_edit
-    I18n.t('.badge_edit')
+    I18n.t('badge_edit')
   end
 end

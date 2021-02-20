@@ -1,12 +1,12 @@
 <tr>
-  <td><%= badge.title %></td>
-  <td><%= image_tag "#{badge.image}", width: 80, height: 80 %></td>
+  <td class="align-middle"><%= badge.title %></td>
+  <td class="align-middle"><%= image_tag "#{badge.image}", width: 80, height: 80 %></td>
   <td><%= show_rule(badge) %></td>
-  <td><%= link_to('Show', admin_badge_path(badge))%></td>
-  <td>
+  <td class="align-middle"><%= link_to('Show', admin_badge_path(badge))%></td>
+  <td class="align-middle">
     <%= link_to('Edit', edit_admin_badge_path(badge))%>
   </td>
-  <td> <%= link_to('Delete',
+  <td class="align-middle"> <%= link_to('Delete',
                 admin_badge_path(badge),
                 method: :delete,
                 data: { confirm: 'Are you sure?' } ) %>
