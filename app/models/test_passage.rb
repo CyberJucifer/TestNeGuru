@@ -10,7 +10,7 @@ class TestPassage < ApplicationRecord
   SUCCESS_VALUE = 85
 
   def completed?
-    current_question.nil?
+    current_question.nil? || timed_out?
   end
 
   def success?
@@ -26,6 +26,14 @@ class TestPassage < ApplicationRecord
 
   def result_in_percents
     (correct_questions.to_f/test.questions.count * 100).to_i
+  end
+
+  def timed_out?
+    (test.timer * 60 - (Time.now - created_at)).to_i <= 0 if test.timer.present?
+  end
+
+  def time_left
+    (test.timer * 60 - (Time.now - created_at)).to_i if test.timer > 0
   end
 
   private

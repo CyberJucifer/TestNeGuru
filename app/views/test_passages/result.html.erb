@@ -1,6 +1,8 @@
 <h1><%= t('.completed', title: @test_passage.test.title) %></h1>
 <% if @test_passage.success? %>
   <p><%= t('.success') %> <span style="color:green"><%= @test_passage.result_in_percents %>%</span></p>
+<% elsif @test_passage.timed_out? %>
+  <p><%= t('.times_up') %> </p>
 <% else %>
   <p><%= t('.failure') %> <span style="color:red"><%= @test_passage.result_in_percents %>%</span></p>
 <% end %>
