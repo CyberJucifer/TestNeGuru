@@ -16,7 +16,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-
     @test = Test.new(test_params)
     @test.creator = current_user
 
@@ -63,7 +62,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def rescue_with_test_not_found
-    render plain: 'Test was not found!'
+    render plain: t('.test_not_found')
   end
 
 end

@@ -25,7 +25,7 @@ class TestPassagesController < ApplicationController
     gist = current_user.gists.create(question: @test_passage.current_question, gist_id: result.id, url: result.html_url)
 
     if result && gist.persisted?
-      flash[:notice] = "#{t('.success')} - #{view_context.link_to('Созданный gist',
+      flash[:notice] = "#{t('.success')} - #{view_context.link_to(t('.created_gist'),
                                                                   result.html_url,
                                                                   rel: 'nofollow',
                                                                   target: '_blank')}"

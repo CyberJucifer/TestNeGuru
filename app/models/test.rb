@@ -14,6 +14,7 @@ class Test < ApplicationRecord
   scope :middle, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
   scope :by_level, ->(level) { where(level: level) }
+  scope :that_have_questions, -> { where(:question.count.positive?)}
 
   def self.names_by_category(category_title)
     joins(:category)

@@ -3,19 +3,19 @@
   <%= render 'shared/errors', resource: @test %>
 
   <div class="field form-group">
-    <%= form.label :title %><br>
+    <%= form.label :title, t('.title') %><br>
     <%= form.text_field :title %>
   </div>
 
   <div class="field form-group">
-    <%= form.label :level %><br>
+    <%= form.label :level, t('.level') %><br>
     <%= form.number_field :level %>
   </div>
 
   <div class="field form-group">
-    <%= form.label :category_id %>:
+    <%= form.label :category_id, t('.category') %>:
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </div>
 
-  <%= form.submit class: "btn btn-primary" %>
+  <%= form.submit t('.submit_test'), class: "btn btn-primary" %>
 <% end %>

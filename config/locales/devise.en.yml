@@ -20,14 +20,28 @@ en:
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
+        welcome: "Welcome, %{email} !"
+        confirmation_instructions): "You can confirm your account email through the link below:"
+        confirm_account: "Confirm account"
       reset_password_instructions:
         subject: "Reset password instructions"
+        request_change_password: "Someone has requested a link to change your password. You can do this through the link below."
+        change_password: "Change my password"
+        ignore: "If you didn't request this, please ignore this email."
+        notification: "Your password won't change until you access the link above and create a new one."
       unlock_instructions:
         subject: "Unlock instructions"
+        blocked: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        notification: "Click the link below to unlock your account:"
+        unlock: "Unlock account"
       email_changed:
         subject: "Email Changed"
+        hello: "Hello, %{email} !"
+        being_changed: "We're contacting you to notify you that your email is being changed to %{email}"
+        been_changed: "We're contacting you to notify you that your email has been changed to %{email}"
       password_change:
         subject: "Password Changed"
+        password_changed: "We're contacting you to notify you that your password has been changed."
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
@@ -55,6 +69,17 @@ en:
         password_confirmation: "Password confirmation"
         characters_minimum: "%{minimum_password_length} characters minimum"
         sign_up: "Sign up"
+      edit:
+        waiting_confirmation: "Currently waiting confirmation for:"
+        leave_blank: "(leave blank if you don't want to change it)"
+        characters_minimum: "%{length} characters minimum"
+        password_confirmation: "Password confirmation"
+        current_password: "Current password"
+        current_password_note: "(we need your current password to confirm your changes)"
+        update: "Update"
+        back: "Back"
+        cancel_account: "Cancel my account"
+        cancel_my_account: "Want to cancel account?"
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."

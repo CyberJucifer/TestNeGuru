@@ -7,7 +7,7 @@ class TestPassage < ApplicationRecord
 
   scope :passed, -> { where('result >= ?', SUCCESS_VALUE) }
 
-  SUCCESS_VALUE = 85.freeze
+  SUCCESS_VALUE = 85
 
   def completed?
     current_question.nil?

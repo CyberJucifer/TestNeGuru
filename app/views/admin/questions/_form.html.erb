@@ -2,9 +2,9 @@
 <%= form_with(model: [:admin, @test, @question], local: true) do |form| %>
   <%= render 'shared/errors', resource: @question %>
   <div class="field form-group">
-    <%= form.label :title %><br>
+    <%= form.label :title, t('.title') %><br>
     <%= form.text_field :title %>
   </div>
 
-  <p><%= form.submit 'new question', class: 'btn btn-primary' %></p>
+  <p><%= form.submit t('.submit_question'), class: 'btn btn-primary' %></p>
 <% end %>

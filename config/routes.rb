@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   devise_for :users, path: :negurus, path_names: { sign_in: :login, sign_out: :logout }, controllers: { sessions: "users/sessions"}
 
   root 'tests#index'
-  get 'my_badges', to: 'user_badge#index'
 
   resources :tests, only: :index do
 

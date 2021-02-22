@@ -12,7 +12,7 @@ module ApplicationHelper
 
   def flash_message(type)
     if flash[type]
-      type == 'alert' ? flash_type = 'alert-danger' : flash_type = 'alert-info'
+      flash_type = type.eql?('alert') ? 'alert-danger' : 'alert-info'
       content_tag :p, flash[type].html_safe, class: "flash #{flash_type}"
     end
   end

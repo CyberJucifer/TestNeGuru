@@ -5,5 +5,5 @@
               html: { style: 'display: none' },
               data: { test_id: test.id } do |form| %>
   <%= form.text_field :title, class: 'form-control mr-2' %>
-  <%= form.submit 'submit', class: 'btn btn-primary' %>
+  <%= form.submit t('.submit'), class: 'btn btn-primary' %>
 <% end %>

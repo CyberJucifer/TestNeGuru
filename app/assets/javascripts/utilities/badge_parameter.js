@@ -1,26 +1,44 @@
-document.addEventListener('turbolinks:load', function() {
-    let control = document.querySelector('.rule')
-
-    if (control) {
-        $('select').change(controlParameter)
+class BadgeParameter {
+    constructor(form) {
+        this.form = form
+        this.badge_rule = form.elements.badge_rule
+        this.setup()
     }
-})
 
-    function controlParameter() {
-        let parameterCategories = document.querySelector('.parameter-categories').classList
-        let parameterLevels = document.querySelector('.parameter-levels').classList
+    reset() {
+        this.elements = document.getElementsByClassName('js-parameter')
+        this.elements_select = document.getElementsByName('badge[parameter]')
 
-        if ($(this).val() === 'all_tests_exact_category') {
-            parameterCategories.remove('hide')
-            parameterLevels.add('hide')
-            document.querySelector('.parameter-levels select').setAttribute('disabled','true')
-        } else if ($(this).val() === 'first_try') {
-            parameterCategories.add('hide')
-            parameterLevels.add('hide')
-            document.querySelector('.parameter-levels select').setAttribute('disabled','true')
-        } else if ($(this).val() === 'all_tests_exact_level') {
-            parameterCategories.add('hide')
-            parameterLevels.remove('hide')
-            document.querySelector('.parameter-levels select').removeAttribute('disabled')
+        for (let i = 0; i < this.elements.length; i++) {
+            this.elements[i].classList.add('hide')
+        }
+
+        for (let i = 0; i < this.elements_select.length; i++) {
+            this.elements_select[i].setAttribute('disabled', 'true')
         }
     }
+
+    controlParameter() {
+        this.reset()
+
+        this.badge_rule_value = this.badge_rule.options[this.badge_rule.selectedIndex].value
+        this.parameter = document.getElementById(this.badge_rule_value)
+
+        if (this.parameter){
+            this.parameter.classList.remove('hide')
+            this.parameter.classList.remove('js-parameter')
+            document.querySelector('.' + this.parameter.className + ' select').removeAttribute('disabled')
+            this.parameter.classList.add('js-parameter')
+        }
+    }
+
+    setup() {
+        this.badge_rule.addEventListener('change', event => this.controlParameter())
+    }
+}
+
+document.addEventListener('turbolinks:load', function() {
+    const badge_form = document.getElementById('badge-new')
+
+    if (badge_form) new BadgeParameter(badge_form)
+})

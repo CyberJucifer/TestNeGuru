@@ -3,7 +3,7 @@ en:
   first_try: "С первой попытки"
   all_tests_exact_level: "Все тесты %{title} уровня"
   badge_create: "Create new badge"
-  badge_edit: "Edit badge"
+  badge_edit: "Edit %{title} badge"
   test_passages:
     result:
       header: "The %{title} Test was Completed!"
@@ -17,6 +17,7 @@ en:
       question: "Question"
       link: "Link URL"
       creator: "Creator's email"
+      created_gist: "Created gist"
     gist_params:
       description: "A question in %{title} from TestNeGuru"
     show:
@@ -34,10 +35,14 @@ en:
       sign_up: "Sign up"
       badges: "Badges"
       log_in: "Log in"
+      admin_mode: "Admin mode"
     errors:
       header:
         one: "Found %{count} error:"
         other: "Found %{count} errors:"
+    footer:
+      description: "Application for administration and passing tests"
+      thinketica: "Educational project in an online school"
   tests:
     test:
       start: "Start"
@@ -46,6 +51,8 @@ en:
       level: "Level"
       actions: "Actions"
       tests: "Tests"
+      category: "Category"
+    test_not_found: "Test wasn't found!"
   badges:
     index:
       badges: "Badges"
@@ -63,7 +70,7 @@ en:
         all_tests_exact_level: "All tests from exact level"
         first_try: "With a first try"
         parameter: "Parameter"
-        create: "Create"
+        submit: "Submit"
         title: "Title"
         image: "Image"
       index:
@@ -75,6 +82,67 @@ en:
         rule: "Rule"
         all_badges: "All badges"
         new_badge: "Create badge"
+      edit:
+        back_to_badges: "Back to badges"
+      badge:
+        edit: "Edit"
+      show:
+        edit: "Edit"
+    tests:
+      index:
+        category: "Category"
+        tests: "Tests"
+      test_not_found: "Test was not found!"
+      form:
+        title: "Title"
+        level: "Level"
+        category: "Category"
+        submit_test: "Submit"
+      show:
+        edit_test: "Edit test"
+        new_question: "Create new question"
+        questions_amount: "Amount of questions: %{count}"
+        id: "ID"
+        question: "Question"
+        actions: "Actions"
+      form_inline:
+        submit: "Change"
+    questions:
+      question_not_found: "Question was not found!"
+      form:
+        submit_question: "Submit"
+        title: "Title"
+      edit:
+        back_to_test: "Back to test"
+      show:
+        answers: "Answers"
+        question: "Question"
+    answers:
+      answer:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+        are_you_sure: "Are you sure?"
+      form:
+        title: "Title"
+        correct: "Correct"
+        submit_answer: "Submit"
+      edit:
+        edit_answer: "Editing answer"
+        back_to_question: "Back to question"
+      new:
+        new_answer: "New answer"
+        back_to_question: "Back to question"
+      show:
+        edit: "Edit"
+        back_to_question: "Back to question"
+        question: "Question"
+        answer: "Answer:"
+        correct: "Correct:"
+    nav:
+      gists: "Gists"
+      user_mode: "User mode"
+      admin_panel: "Admin panel"
   back: "Back"
   no_questions: "There is no questions in test!"
 
@@ -90,4 +158,14 @@ en:
       messages:
         blank: "can't be blank"
         not_a_number: "- not a number"
+  not_authorized: "You are not authorized to view this page!"
+  create_new_question: "Create new %{title} question"
+  edit_question: "Edit %{title} question"
+  create_new_test: "Create New Test"
+  edit_test: "Edit %{title} test"
+  tests_mailer:
+    complete_test:
+      hooray: "Hooray!"
+      completed_message: "Congratulations! You completed the %{title} test. Why not to finish"
+      more: "more"
 
