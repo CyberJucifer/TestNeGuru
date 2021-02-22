@@ -11,6 +11,7 @@ en:
       success: "Success! Your result:"
       failure: "Failure! Your result:"
       back_to_tests: "Back to tests"
+      times_up: "Time's up! Unfortunately, the test wasn't passed..."
     gist:
       success: "Gist was successfully!"
       failure: "An error occurred while saving gists"
@@ -98,6 +99,9 @@ en:
         level: "Level"
         category: "Category"
         submit_test: "Submit"
+        new_test: "Create test"
+        timer: "Timer"
+        minutes: "minutes"
       show:
         edit_test: "Edit test"
         new_question: "Create new question"
