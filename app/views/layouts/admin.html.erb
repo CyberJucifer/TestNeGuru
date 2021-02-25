@@ -4,14 +4,12 @@
   <title>Admin Panel | TestNeGuru</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
 <%= render 'admin/nav' %>
-<%= link_to('Show created gists', admin_gists_path) %>
 <%= flash_message('alert') %>
 <%= yield %>
 <%= render 'shared/footer' %>

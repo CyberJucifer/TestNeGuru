@@ -1,11 +1,10 @@
-<h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
-
+<h1><%= t('.completed', title: @test_passage.test.title) %></h1>
 <% if @test_passage.success? %>
-  <p>Success! Your result: <span style="color:green"><%= @test_passage.result_in_percents %>%</span></p>
+  <p><%= t('.success') %> <span style="color:green"><%= @test_passage.result_in_percents %>%</span></p>
 <% elsif @test_passage.timed_out? %>
-  <p>Time's up! Unfortunately, the test wasn't passed... </p>
+  <p><%= t('.times_up') %> </p>
 <% else %>
-  <p>Failure! Your result: <span style="color:red"><%= @test_passage.result_in_percents %>%</span></p>
+  <p><%= t('.failure') %> <span style="color:red"><%= @test_passage.result_in_percents %>%</span></p>
 <% end %>
 
-<%= link_to 'Back to tests', tests_path %>
+<%= link_to t('.back_to_tests'), tests_path %>

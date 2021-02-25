@@ -4,14 +4,15 @@
     <%= render 'form_inline', test: test == @test ? @test : test %>
   </td>
   <td class="align-middle"><%= test.level %></td>
-  <td class="align-middle"><%= link_to('Show', admin_test_path(test) )%></td>
+  <td class="align-middle"><%= test.category.title %></td>
+  <td class="align-middle"><%= link_to(t('admin.answers.answer.show'), admin_test_path(test) )%></td>
   <td class="align-middle">
-    <%= link_to('Edit', edit_admin_test_path(test), data: { test_id: test.id }, class: 'form-inline-link' )%>
+    <%= link_to(t('admin.answers.answer.edit'), edit_admin_test_path(test), data: { test_id: test.id }, class: 'form-inline-link' )%>
   </td>
   <td class="align-middle">
-    <%= link_to('Delete',
+    <%= link_to(t('admin.answers.answer.delete'),
                 admin_test_path(test),
                 method: :delete,
-                data: { confirm: 'Are you sure?' } ) %>
+                data: { confirm: t('admin.answers.answer.are_you_sure') } ) %>
   </td>
 </tr>

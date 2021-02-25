@@ -5,7 +5,7 @@ class TestsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-    @tests = Test.all
+    @tests = Test.joins(:questions).uniq
   end
 
   def start
@@ -17,7 +17,7 @@ class TestsController < ApplicationController
   private
 
   def rescue_with_test_not_found
-    render plain: 'Test was not found!'
+    render plain: t('.test_not_found')
   end
 
 end

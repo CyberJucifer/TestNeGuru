@@ -1,17 +1,21 @@
 <h1><%= @test.title %></h1>
 
-<table>
+<table class="table table-striped table-bordered">
     <tr>
-      <th>ID</th>
-      <th>Question</th>
-      <th colspan="3">Actions</th>
+      <th class="sort-by-title pointer">
+        <%= t('.id') %>
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
+      <th><%= t('.question') %></th>
+      <th colspan="3"><%= t('.actions') %></th>
     </tr>
 
   <%= render partial: 'admin/questions/question', collection: @test.questions %>
 </table>
 
-<p> Amount of questions: <%= @questions.count %> </p><br>
+<p> <%= t('.questions_amount', count: @questions.count) %> </p><br>
 
-<%= link_to 'Edit test', edit_admin_test_path(@test) %><br>
-<%= link_to 'Create new question', new_admin_test_question_path(@test) %><br>
-<%= link_to 'Back', admin_tests_path %>
+<%= link_to t('.edit_test'), edit_admin_test_path(@test) %><br>
+<%= link_to t('.new_question'), new_admin_test_question_path(@test) %><br>
+<%= link_to t('test_passages.show.back_to_tests'), admin_tests_path %>

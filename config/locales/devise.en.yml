@@ -1,11 +1,12 @@
-# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
-
 en:
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      new:
+        email: "Email"
+        resend_confirmation_instructions: "Resend confirmation instructions"
     failure:
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
@@ -19,14 +20,28 @@ en:
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
+        welcome: "Welcome, %{email} !"
+        confirmation_instructions): "You can confirm your account email through the link below:"
+        confirm_account: "Confirm account"
       reset_password_instructions:
         subject: "Reset password instructions"
+        request_change_password: "Someone has requested a link to change your password. You can do this through the link below."
+        change_password: "Change my password"
+        ignore: "If you didn't request this, please ignore this email."
+        notification: "Your password won't change until you access the link above and create a new one."
       unlock_instructions:
         subject: "Unlock instructions"
+        blocked: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        notification: "Click the link below to unlock your account:"
+        unlock: "Unlock account"
       email_changed:
         subject: "Email Changed"
+        hello: "Hello, %{email} !"
+        being_changed: "We're contacting you to notify you that your email is being changed to %{email}"
+        been_changed: "We're contacting you to notify you that your email has been changed to %{email}"
       password_change:
         subject: "Password Changed"
+        password_changed: "We're contacting you to notify you that your password has been changed."
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
@@ -45,14 +60,48 @@ en:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address."
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again"
+      new:
+        become_ne_guru: "Become a Ne Guru"
+        first_name: "First name"
+        last_name: "Last name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        characters_minimum: "%{minimum_password_length} characters minimum"
+        sign_up: "Sign up"
+      edit:
+        waiting_confirmation: "Currently waiting confirmation for:"
+        leave_blank: "(leave blank if you don't want to change it)"
+        characters_minimum: "%{length} characters minimum"
+        password_confirmation: "Password confirmation"
+        current_password: "Current password"
+        current_password_note: "(we need your current password to confirm your changes)"
+        update: "Update"
+        back: "Back"
+        cancel_account: "Cancel my account"
+        cancel_my_account: "Want to cancel account?"
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
+      new:
+        email: "Email"
+        password: "Password"
+        remember_me: "Remember me"
+        enter: "Enter"
+        title: "Enter Ne Guru Gates"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+    shared:
+      links:
+        log_in: "Log in"
+        sign_up: "Sign up"
+        forgot_password: "Forgot your password?"
+        didnt_receive_confirmation_instructions: "Didn't receive confirmation instructions?"
+        didnt_receive_unlock_instructions: "Didn't receive unlock instructions?"
+        sign_in_with: "Sign in with"
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"

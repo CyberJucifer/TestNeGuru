@@ -1,25 +1,27 @@
 <h1><%= test_header(@test) %></h1>
 <%= form_with(model: [:admin, @test], local: true) do |form| %>
   <%= render 'shared/errors', resource: @test %>
-  <p>
-    <%= form.label :title %>*<br>
+
+  <div class="field form-group">
+    <%= form.label :title, t('.title') %>*<br>
     <%= form.text_field :title %>
-  </p>
+  </div>
 
-  <p>
-    <%= form.label :level %>*<br>
+
+  <div class="field form-group">
+    <%= form.label :level, t('.level') %>*<br>
     <%= form.number_field :level %>
-  </p>
+  </div>
 
-  <p>
-    <%= form.label :timer %> (minutes)<br>
+  <div class="field form-group">
+    <%= form.label :timer, t('.timer') %>*<br>
     <%= form.number_field :timer %>
-  </p>
+  </div>
 
-  <p>
-    <%= form.label :category_id %>*:
+  <div class="field form-group">
+    <%= form.label :category_id, t('.category') %>*:
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
-  </p>
+  </div>
 
-  <p><%= form.submit %></p>
+  <%= form.submit t('.submit_test'), class: "btn btn-primary" %>
 <% end %>

@@ -1,0 +1,35 @@
+<h1><%= t('.badges') %></h1>
+
+<%= link_to(t('.back_to_tests'), tests_path) %>
+
+<table class="table table-bordered table-striped">
+  <caption style="caption-side: top"><%= t('.my_badges') %></caption>
+  <tr>
+    <th class="sort-by-title pointer align-middle">
+      <%= t('.title') %>
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
+    <th> <%= t('.image') %> </th>
+    <th> <%= t('.rule') %> </th>
+  </tr>
+
+<%= render @user_badges %>
+</table>
+
+<br>
+
+<table class="table table-bordered table-striped">
+  <caption style="caption-side: top"><%= t('.all_badges') %></caption>
+  <tr>
+    <th class="sort-by-title pointer align-middle">
+      <%= t('.title') %>
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
+    <th> <%= t('.image') %> </th>
+    <th> <%= t('.rule') %> </th>
+  </tr>
+
+<%= render @badges %>
+</table>

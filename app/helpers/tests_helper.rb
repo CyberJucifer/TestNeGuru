@@ -6,10 +6,10 @@ module TestsHelper
   private
 
   def test_header_create
-    "Create New Test"
+    I18n.t('.create_new_test')
   end
 
   def test_header_edit(test)
-    "Edit #{test.title} Test"
+    I18n.t('.edit_test', title: test.title)
   end
 end

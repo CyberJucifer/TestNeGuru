@@ -1,0 +1,31 @@
+<h1><%= badge_header(@badge) %></h1>
+<%= form_with(model: [:admin, @badge], local: true, id: 'badge-new') do |form| %>
+  <%= render 'shared/errors', resource: @badge %>
+  <p>
+    <%= form.label :title, t('.title') %>*<br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :image, t('.image') %>*<br>
+    <%= form.text_field :image %>
+  </p>
+
+  <div class="rule">
+    <%= form.label :rule, t('.rule') %>*:
+    <%= form.select :rule, Badge.rules.keys.map {|key| [t(".#{key}"), key]}, prompt: true %>
+  </div>
+
+  <div class="js-parameter js-parameter-exact-category hide" id="all_tests_exact_category">
+    <%= form.label :parameter, t('.parameter') %>*<br>
+    <%= form.collection_select :parameter, Category.all, :id, :title %>
+  </div>
+
+  <div class="js-parameter js-parameter-exact-level hide" id="all_tests_exact_level">
+    <%= form.label :parameter, t('.parameter')  %>*<br>
+    <%= form.select :parameter, Test.select([:id,:level]).pluck(:level).uniq.sort, disabled: true %>
+  </div>
+
+
+  <br><%= form.submit t('.submit'), class: "btn btn-primary" %>
+<% end %>

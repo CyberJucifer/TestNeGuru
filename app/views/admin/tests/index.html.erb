@@ -1,21 +1,22 @@
-<h1>Tests</h1>
+<h1><%= t('.tests') %></h1>
 
 <%= flash_message('notice') %>
 
 <%= render 'shared/errors', resource: @test %>
 
 <p>
-  <%= link_to 'New_test', new_admin_test_path %>
+  <%= link_to t('admin.tests.form.new_test'), new_admin_test_path %>
 </p>
 
-<table class="table">
+<table class="table table-bordered table-striped">
   <tr>
     <th class="sort-by-title pointer">
-      Title
+      <%= t('tests.index.title') %>
       <%= octicon 'arrow-up', class: 'text-success hide' %>
       <%= octicon 'arrow-down', class: 'text-success hide' %>
     </th>
-    <th> Level </th>
+    <th><%= t('tests.index.level') %> </th>
+    <th><%= t('tests.index.category') %></th>
     <th colspan="3">Actions</th>
   </tr>
 

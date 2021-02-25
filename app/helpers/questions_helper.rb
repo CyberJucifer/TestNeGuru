@@ -7,10 +7,10 @@ module QuestionsHelper
   private
 
   def question_header_create(test)
-    "Create New #{test.title} Question"
+    I18n.t('.create_new_question', title: test.title)
   end
 
   def question_header_edit(question)
-    "Edit #{question.test.title} Question"
+    I18n.t('.edit_question', title: question.test.title)
   end
 end

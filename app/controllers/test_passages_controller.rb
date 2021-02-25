@@ -11,6 +11,7 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
+      current_user.badges << BadgeService.new(@test_passage).give_badges
       TestsMailer.completed_test(@test_passage).deliver_later
       redirect_to result_test_passage_path(@test_passage)
     else
@@ -26,7 +27,7 @@ class TestPassagesController < ApplicationController
     gist = current_user.gists.create(question: @test_passage.current_question, gist_id: result.id, url: result.html_url)
 
     if result && gist.persisted?
-      flash[:notice] = "#{t('.success')} - #{view_context.link_to('Созданный gist',
+      flash[:notice] = "#{t('.success')} - #{view_context.link_to(t('.created_gist'),
                                                                   result.html_url,
                                                                   rel: 'nofollow',
                                                                   target: '_blank')}"

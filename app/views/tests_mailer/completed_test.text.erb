@@ -1,4 +1,4 @@
-Hooray!
+<%= t('tests_mailer.complete_test.hooray') %>
 =======
 
-Congratulations! You completed the "<%= @test.title %>" test. Choose your next test: <%= tests_url %>
+<%= t('tests_mailer.complete_test.completed_message', title: @test.title) %> <%= tests_url %>?

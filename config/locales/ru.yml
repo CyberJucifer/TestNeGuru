@@ -1,12 +1,175 @@
 ru:
+  edit_question: "Редактировать вопрос теста %{title}"
+  edit_test: "Редактировать тест %{title}"
+  all_tests_exact_category: "Все вопросы из категории %{title}"
+  first_try: "С первой попытки"
+  all_tests_exact_level: "Все тесты %{title} уровня"
+  badge_create: "Создать новый бэйдж"
+  badge_edit: "Редактировать %{title} бэйдж"
+  create_new_test: "Создать новый тест"
   test_passages:
     result:
       header: "Тест %{title} успешно завершен!"
+      completed: "Тест %{title} пройден!"
+      success: "Успешно! Ваш результат:"
+      times_up: "Время вышло! К сожалению, тест не сдан..."
+      failure: "Провал! Ваш результат:"
+      back_to_tests: "Назад к тестам"
     gist:
       success: "Gist успешно сохранен!"
       failure: "Во время сохранения gists произошла ошибка"
       question: "Вопрос"
       link: "Ссылка на gist"
       creator: "Почта автора"
+      created_gist: "Созданный gist"
     gist_params:
       description: "Вопрос в %{title} из TestNeGuru"
+    show:
+      title: "Прохождение теста %{title}"
+      question_id: "Вопрос № %{id}"
+      questions_amount: "Количество вопросов: %{amount}"
+      back_to_tests: "Назад к тестам"
+      next: "Далее"
+      gist: "Создать гист по вопросу"
+  shared:
+    nav:
+      title: "Тест Не Гуру"
+      welcome: "Добро пожаловать, %{first_name} %{last_name} Не Гуру |"
+      logout: "Выйти"
+      sign_up: "Зарегистрироваться"
+      badges: "Бэйджи"
+      log_in: "Войти"
+      admin_mode: "Режим администратора"
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки:"
+        many: "Обнаружено %{count} ошибок:"
+        one: "Обнаружена %{count} ошибка:"
+        other: "Обнаружено %{count} ошибки:"
+    footer:
+      description: "Приложение для администрирования и прохождения тестов"
+      thinketica: "Учебный проект в онлайн-школе"
+  tests:
+    test:
+      start: "Начать"
+    index:
+      title: "Название"
+      level: "Уровень"
+      actions: "Действия"
+      tests: "Тесты"
+      category: "Категория"
+    test_not_found: "Тест не найден"
+  badges:
+    index:
+      badges: "Бэйджи"
+      my_badges: "Мои бэйджи"
+      title: "Название"
+      image: "Изображение"
+      rule: "Правило"
+      all_badges: "Все бейджи"
+      back_to_tests: "Назад к тестам"
+  admin:
+    badges:
+      form:
+        rule: "Правило"
+        first_try: "С первого раза"
+        all_tests_exact_category: "Все тесты определенной категории"
+        all_tests_exact_level: "Все тесты определенного уровня"
+        parameter: "Параметр"
+        submit: "Принять"
+        title: "Название"
+        image: "Изображение"
+      index:
+        back_to_tests: "Назад к тестам"
+        badges: "Бэйджи"
+        my_badges: "Мои бэйджи"
+        title: "Название"
+        image: "Изображение"
+        rule: "Правило"
+        all_badges: "Все бэйджи"
+        new_badge: "Создать бэйдж"
+      edit:
+        back_to_badges: "Назад к бейджам"
+      badge:
+        edit: "Редактировать"
+      show:
+        edit: "Редактировать"
+    questions:
+      question_not_found: "Вопрос не был найден"
+      form:
+        submit_question: "Принять"
+        title: "Название"
+        create_new_question: "Новый вопрос %{title} теста"
+      edit:
+        back_to_test: "Назад к тесту"
+      show:
+        answers: "Ответы"
+        question: "Вопрос"
+    tests:
+      test_not_found: "Тест не найден!"
+      form:
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"
+        submit_test: "Принять"
+        new_test: "Создать тест"
+        timer: "Таймер"
+        minutes: "в минутах"
+      show:
+        edit_test: "Редактировать тест"
+        new_question: "Создать новый вопрос"
+        questions_amount: "Количество вопросов: %{count}"
+        id: "Номер"
+        question: "Вопрос"
+        actions: "Действия"
+      form_inline:
+        submit: "Изменить"
+      index:
+        tests: "Тесты"
+    answers:
+      answer:
+        show: "Показать"
+        edit: "Редактировать"
+        delete: "Удалить"
+        are_you_sure: "Вы уверены?"
+      form:
+        title: "Название"
+        correct: "Правильный"
+        submit_answer: "Принять"
+      edit:
+        edit_answer: "Редактирование ответа"
+        back_to_question: "Назад к вопросу"
+      new:
+        new_answer: "Новый ответ"
+        back_to_question: "Назад к вопросу"
+      show:
+        edit: "Редактировать"
+        back_to_question: "Назад к вопросу"
+        question: "Вопрос"
+        answer: "Ответ:"
+        correct: "Правильный:"
+    nav:
+      gists: "Созданные gist"
+      user_mode: "Пользовательский режим"
+      admin_panel: "Панель администратора"
+  back: "Назад"
+
+  activerecord:
+    models:
+      test: "Тест"
+    attributes:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+    errors:
+      messages:
+        blank: "не может быть пустым"
+        not_a_number: "- не числовое значение"
+  not_authorized: "У вас нет прав на просмотр данной страницы!"
+  tests_mailer:
+    complete_test:
+      hooray: "Ура!"
+      completed_message: "Поздравляем! Вы закончили прохождение %{title} теста. Почему бы не пройти"
+      more: "другие"
+  create_new_question: "Новый вопрос %{title} теста"

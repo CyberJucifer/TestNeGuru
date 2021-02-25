@@ -12,8 +12,13 @@ module ApplicationHelper
 
   def flash_message(type)
     if flash[type]
-      content_tag :p, flash[type].html_safe, class: "flash #{type}"
+      flash_type = type.eql?('alert') ? 'alert-danger' : 'alert-info'
+      content_tag :p, flash[type].html_safe, class: "flash #{flash_type}"
     end
+  end
+
+  def show_rule(badge)
+    I18n.t(".#{badge.rule}", title: (badge.all_tests_exact_category? ? Category.by_id(badge.parameter) : badge.parameter) )
   end
 
 end
